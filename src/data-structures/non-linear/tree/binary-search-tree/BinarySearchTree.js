@@ -1,12 +1,11 @@
 import BinarySearchTreeNode from './BinarySearchTreeNode';
 
-class BinarySearchTree{
+export default class BinarySearchTree{
     constructor(){
         this.root = null;
     }
 
     insert(val){
-        console.log(`Inserting ${val}`);
         this.root = this.insertNode(val, this.root);
     }
 
@@ -19,26 +18,24 @@ class BinarySearchTree{
         return node;
     }
 
-    displayInAscending(){
-        console.log('\n\n\nDisplaying values in Ascending order');
-        this.iot();
+    inOrderTraversal(node = this.root, resultArray = []){
+        if(!node) return resultArray;
+
+        if(node.left) resultArray = this.inOrderTraversal(node.left, resultArray);
+        resultArray.push(node.val);
+        if(node.right) resultArray = this.inOrderTraversal(node.right, resultArray);
+        
+        return resultArray;
     }
 
-    displayInDescending(){
-        console.log('\n\n\nDisplaying values in Descending order');
-        this.riot();
-    }
+    reverseInOrderTraversal(node = this.root, resultArray = []){
+        if(!node) return resultArray;
 
-    iot(node = this.root){
-        if(node.left) this.iot(node.left);
-        console.log(node.val);
-        if(node.right) this.iot(node.right);      
-    }
-
-    riot(node = this.root){
-        if(node.right) this.riot(node.right);
-        console.log(node.val);
-        if(node.left) this.riot(node.left);
+        if(node.left) resultArray = this.reverseInOrderTraversal(node.right, resultArray);
+        resultArray.push(node.val);
+        if(node.right) resultArray = this.reverseInOrderTraversal(node.left, resultArray);
+        
+        return resultArray;
     }
 
     findKthLargest(k, node = this.root){
@@ -59,9 +56,6 @@ class BinarySearchTree{
      * in left & right direction till you find leaf nodes
      */
     displayAllLeafNodes(node = this.root){
-        if(!arguments[0]) console.log(`\n\n\nDisplaying all Leaf Nodes`);
-        
-
         if(!node) return; // When node is null, return
         if(!node.left && !node.right) {
             // When both left & right nodes are null, then its LEAF
@@ -73,28 +67,25 @@ class BinarySearchTree{
         if(node.right) this.displayAllLeafNodes(node.right);
     }
 
-    displayMinAndMax(node = this.root){
-        if(!node) return;
-
-        console.log(`\n\n\nMinimum value is ${this.getMinNode(node).val}`);
-        console.log(`\n\n\nMaximum value is ${this.getMaxNode(node).val}`);
-    }
-
     getMinNode(node){
+        if(!node) return node;
+
         if(node.left) return this.getMinNode(node.left);
         return node;
     }
 
     getMaxNode(node){
+        if(!node) return node;
+
         if(node.right) return this.getMaxNode(node.right);
         return node;
     }
 
-    isBST(node = this.root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER){
+    isBinarySearchTree(node = this.root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER){
         if(!node) return true;
 
-        console.log(`\n\n\nChecking if BST : ${min} <= ${node.val} < ${max}`);
-        return min <= node.val && node.val < max && this.isBST(node.left, min, node.val) && this.isBST(node.right, node.val+1, max);
+        // console.log(`Checking if BST : ${min} <= ${node.val} < ${max}`);
+        return min <= node.val && node.val < max && this.isBinarySearchTree(node.left, min, node.val) && this.isBinarySearchTree(node.right, node.val+1, max);
     }
 
     replace(oldVal, newVal){
@@ -130,32 +121,6 @@ class BinarySearchTree{
         if(node.left) this.displayAllTreePaths(node.left, displayStr);
         if(node.right) this.displayAllTreePaths(node.right, displayStr);        
     }
-}
-
-var bst = new BinarySearchTree();
-
-let setOne = [50, 75, 20, 60, 100, 10, 30];
-let setTwo = [50, 75, 25, 80, 100, 45, 60, 20, 10];
-
-setTwo.forEach(val => bst.insert(val));
-
-// bst.replace(20, 150);
-
-if(bst.isBST()){
-    console.log('\n\n\n***** YES its a BST and performing other actions *****');
-
-    bst.displayInAscending();
-    bst.displayInDescending();
-    
-    bst.findKthLargest(2); // 500
-    bst.findKthLargest(4); // 75
-    
-    bst.displayAllLeafNodes();
-    bst.displayAllTreePaths();
-    bst.displayMinAndMax();
-}
-else {
-    console.log('\n\n\nNO its not a BST, not performing any other actions...');
 }
 
 /**
