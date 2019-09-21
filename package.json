@@ -1,0 +1,41 @@
+{
+  "name": "javascript-datastructures-and-algos",
+  "version": "1.0.0",
+  "description": "Effort to learn DS & Algos",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register 'test/**/*.js'",
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesuman/javascript-datastructures-and-algos.git"
+  },
+  "keywords": [
+    "computer-science",
+    "cs",
+    "algorithms",
+    "data-structures",
+    "javascript",
+    "algorithm",
+    "javascript-algorithms",
+    "sorting-algorithms",
+    "graph",
+    "tree",
+    "interview",
+    "interview-preparation"
+  ],
+  "author": "Suman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codesuman/javascript-datastructures-and-algos/issues"
+  },
+  "homepage": "https://github.com/codesuman/javascript-datastructures-and-algos#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
