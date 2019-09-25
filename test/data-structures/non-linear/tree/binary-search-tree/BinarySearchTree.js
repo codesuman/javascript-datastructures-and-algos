@@ -46,7 +46,7 @@ describe('Binary Search Tree ->', function(){
         });
     });
 
-    describe.only('#delete()', function() {
+    describe.skip('#delete()', function() {
         it(`deleting root value`, function() {
             console.log(`Root value, BEFORE deleting root value, ${bst.root.val}`);
             console.log(bst.inOrderTraversal(bst.root));
