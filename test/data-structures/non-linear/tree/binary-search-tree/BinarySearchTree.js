@@ -39,6 +39,32 @@ describe('Binary Search Tree ->', function(){
         });
     });
 
+    describe('#delete()', function() {
+        it(`deleting small value`, function() {
+            bst.delete(bst.getMinNode(bst.root).val);
+            expect(bst.inOrderTraversal(bst.root)).to.deep.equal(ascendingValues.slice(1));
+        });
+    });
+
+    describe.only('#delete()', function() {
+        it(`deleting root value`, function() {
+            console.log(`Root value, BEFORE deleting root value, ${bst.root.val}`);
+            console.log(bst.inOrderTraversal(bst.root));
+            
+            bst.delete(bst.root.val);
+
+            console.log(`Root value, AFTER deleting root value, ${bst.root.val}`);
+            console.log(bst.inOrderTraversal(bst.root));
+            
+            let temp = bstValues.slice(1).sort((x,y) => x-y);
+            console.log(`Displaying semi sorted : `);
+            console.log(temp);
+            
+            
+            expect(bst.inOrderTraversal(bst.root)).to.deep.equal(temp);
+        });
+    });
+
     after(function() {
         bst = null;
     });

@@ -18,6 +18,28 @@ export default class BinarySearchTree{
         return node;
     }
 
+    delete(val){
+        this.root = this.deleteNode(this.root, val);
+    }
+
+    deleteNode(node, val){
+        if(!node) return node;
+
+        if(val < node.val) node.left = this.deleteNode(node.left, val);
+        else if(val > node.val) node.right = this.deleteNode(node.right, val);
+        else // Element to be deleted is found 
+        {
+            if(!node.right) return node.left;
+            if(!node.left) return node.right;
+            
+            let minNodeVal = this.getMinNode(node.right).val;
+
+            node.val = minNodeVal;
+            node.right = this.deleteNode(node.right, minNodeVal);
+        }
+        return node;
+    }
+
     inOrderTraversal(node = this.root, resultArray = []){
         if(!node) return resultArray;
 
