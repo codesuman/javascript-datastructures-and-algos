@@ -96,3 +96,4 @@ public
 .dynamodb/
 
 **/.DS_Store
+.vscode
