@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test-bst": "mocha --require @babel/register 'test/data-structures/non-linear/tree/binary-search-tree/BinarySearchTree.js'",
-    "test-bsort": "mocha --require @babel/register 'test/algos/sorting/BubbleSort.js'"
+    "test-bsort": "mocha --require @babel/register 'test/algos/sorting/BubbleSort.js'",
+    "test-ssort": "mocha --require @babel/register 'test/algos/sorting/SelectionSort.js'"
   },
   "repository": {
     "type": "git",
