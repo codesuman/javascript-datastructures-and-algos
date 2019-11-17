@@ -4,8 +4,8 @@
   "description": "Effort to learn DS & Algos",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require @babel/register 'test/**/*.js'",
-    "build": "babel src -d dist"
+    "test-bst": "mocha --require @babel/register 'test/data-structures/non-linear/tree/binary-search-tree/BinarySearchTree.js'",
+    "test-bsort": "mocha --require @babel/register 'test/algos/sorting/BubbleSort.js'"
   },
   "repository": {
     "type": "git",
