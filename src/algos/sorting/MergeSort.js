@@ -6,8 +6,8 @@ export default class MergeSort {
 
   /**
    *
-   * Merge Sort is completely based on RECURSIVELY dividing the given array -
-   * by using left and right indexes then finding the partition index as mid of
+   * MERGE SORT is completely based on RECURSIVELY dividing the given array -
+   * by using left and right indices to find the partition index as mid of
    * left and right.
    *
    * When we RECURSIVELY DIVIDE the array in such fashion we will end up with
@@ -16,8 +16,7 @@ export default class MergeSort {
    * Any given array with single element is SORTED. MergeSort exploits this feature.
    *
    * Now when MERGING, we compare element by element in two arrays and copy the
-   * smaller element into the array. This will be auxilary / temp array that we
-   * and then copy these elements back to original array.
+   * smaller element into the new auxilary / temp array.
    */
   divide(l, r) {
     if (l >= r) return;
