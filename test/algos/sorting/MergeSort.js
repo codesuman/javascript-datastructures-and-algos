@@ -2,7 +2,7 @@ import { expect } from "chai";
 import MergeSort from "../../../src/algos/sorting/MergeSort";
 
 describe("MergeSort ->", function() {
-  let ss;
+  let ms;
   let values;
   let sortedValues;
 
@@ -12,17 +12,17 @@ describe("MergeSort ->", function() {
     sortedValues = [...values];
     sortedValues.sort((x, y) => x - y);
 
-    ss = new MergeSort(values);
+    ms = new MergeSort(values);
   });
 
   describe("#sort()", function() {
     it(`should return sorted values`, function() {
-      expect(ss.getValues()).to.deep.equal(sortedValues);
+      expect(ms.getValues()).to.deep.equal(sortedValues);
     });
   });
 
   after(function() {
-    ss = null;
+    ms = null;
     values = null;
     sortedValues = null;
   });
