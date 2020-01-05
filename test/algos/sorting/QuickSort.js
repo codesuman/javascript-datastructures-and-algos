@@ -2,7 +2,7 @@ import { expect } from "chai";
 import QuickSort from "../../../src/algos/sorting/QuickSort";
 
 describe("QuickSort ->", function() {
-  let ss;
+  let qs;
   let values;
   let sortedValues;
 
@@ -12,17 +12,17 @@ describe("QuickSort ->", function() {
     sortedValues = [...values];
     sortedValues.sort((x, y) => x - y);
 
-    ss = new QuickSort(values);
+    qs = new QuickSort(values);
   });
 
   describe("#sort()", function() {
     it(`should return sorted values`, function() {
-      expect(ss.getValues()).to.deep.equal(sortedValues);
+      expect(qs.getValues()).to.deep.equal(sortedValues);
     });
   });
 
   after(function() {
-    ss = null;
+    qs = null;
     values = null;
     sortedValues = null;
   });
