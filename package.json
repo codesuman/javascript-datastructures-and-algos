@@ -8,7 +8,8 @@
     "test-bsort": "mocha --require @babel/register 'test/algos/sorting/BubbleSort.js'",
     "test-ssort": "mocha --require @babel/register 'test/algos/sorting/SelectionSort.js'",
     "test-msort": "mocha --require @babel/register 'test/algos/sorting/MergeSort.js'",
-    "test-qsort": "mocha --require @babel/register 'test/algos/sorting/QuickSort.js'"
+    "test-qsort": "mocha --require @babel/register 'test/algos/sorting/QuickSort.js'",
+    "test-rsort": "mocha --require @babel/register 'test/algos/sorting/RadixSort.js'"
   },
   "repository": {
     "type": "git",
