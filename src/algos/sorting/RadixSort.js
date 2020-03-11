@@ -1,10 +1,6 @@
-export default class RadixSort{
-    constructor(values){
-        this.values = values;
-        this.maxDigitLen = this.mostDigits();
-        this.sort()
-    }
+import SortingStrategy from "./SortingStrategy";
 
+export default class RadixSort extends SortingStrategy{
     getDigit(num, i){
         return Math.floor(Math.abs(num) / Math.pow(10,i)) % 10;
     }
@@ -41,7 +37,10 @@ export default class RadixSort{
         }
     }
 
-    getValues() {
-        return this.values;
-    }
+    setValues(values) {
+        console.log('\x1b[36m%s\x1b[0m', 'setValues in RadixSort');
+        
+        super.setValues(values);
+        this.maxDigitLen = this.mostDigits();
+    }    
 }

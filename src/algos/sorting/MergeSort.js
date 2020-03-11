@@ -1,6 +1,7 @@
-export default class MergeSort {
-  constructor(values) {
-    this.values = values;
+import SortingStrategy from "./SortingStrategy";
+
+export default class MergeSort extends SortingStrategy{
+  sort(){
     this.divide(0, this.values.length - 1);
   }
 
@@ -59,9 +60,5 @@ export default class MergeSort {
 
     // Copy data from temp to this.values
     for (let z = 0; z < temp.length; z++) this.values[l + z] = temp[z];
-  }
-
-  getValues() {
-    return this.values;
   }
 }

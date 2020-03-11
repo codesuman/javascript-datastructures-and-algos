@@ -1,9 +1,6 @@
-export default class BubbleSort {
-  constructor(values) {
-    this.values = values;
-    this.sort();
-  }
+import SortingStrategy from "./SortingStrategy";
 
+export default class BubbleSort extends SortingStrategy{
   /**
    * Its named BubbleSort cause in each iteration biggest element will be Bubbled up.
    *
@@ -32,9 +29,5 @@ export default class BubbleSort {
     const temp = this.values[x];
     this.values[x] = this.values[y];
     this.values[y] = temp;
-  }
-
-  getValues() {
-    return this.values;
   }
 }

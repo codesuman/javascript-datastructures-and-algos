@@ -1,9 +1,6 @@
-export default class SelectionSort {
-  constructor(values) {
-    this.values = values;
-    this.sort();
-  }
+import SortingStrategy from "./SortingStrategy";
 
+export default class SelectionSort extends SortingStrategy{
   /**
    * This is exact opposite of BubbleSort, here in each iteration smallest element will
    * be pushed to one extreme & it will be ignore in the subsequent iterations.
@@ -37,9 +34,5 @@ export default class SelectionSort {
     const temp = this.values[x];
     this.values[x] = this.values[y];
     this.values[y] = temp;
-  }
-
-  getValues() {
-    return this.values;
   }
 }

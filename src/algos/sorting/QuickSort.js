@@ -1,10 +1,7 @@
-export default class QuickSort {
-  constructor(values) {
-    this.values = values;
-    this.sort(0, this.values.length - 1);
-  }
+import SortingStrategy from "./SortingStrategy";
 
-  sort(l, r) {
+export default class QuickSort extends SortingStrategy{
+  sort(l=0, r=this.values.length - 1) {
     if (l >= r) return;
 
     let pivot = this.divide(l, r);
@@ -52,9 +49,5 @@ export default class QuickSort {
     const temp = this.values[x];
     this.values[x] = this.values[y];
     this.values[y] = temp;
-  }
-
-  getValues() {
-    return this.values;
   }
 }
